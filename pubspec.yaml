@@ -15,6 +15,7 @@ dependencies:
   injectable: ^1.5.4
   get_it: ^7.2.0
   retrofit: ^3.3.1
+  rxdart: ^0.27.5
 dev_dependencies:
   flutter_test:
     sdk: flutter

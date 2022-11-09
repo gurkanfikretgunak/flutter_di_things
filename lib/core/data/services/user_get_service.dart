@@ -12,14 +12,14 @@ part 'user_get_service.g.dart';
 @Injectable(as: UsersService)
 abstract class ApiGetService implements UsersService {
   @factoryMethod
-  factory ApiGetService(Dio dio, AppHelper appConfig) => _ApiGetService(dio,
-      baseUrl: appConfig.apiUrl); // I can inject baseUrl here
+  factory ApiGetService(Dio dio, AppHelper appHelper) =>
+      _ApiGetService(dio, baseUrl: appHelper.apiUrl);
 
   @override
-  @GET('/posts')
-  Future<List<User>> getPosts();
+  @GET('/user')
+  Future<List<User>> getUsers();
 
   @override
-  @GET('/posts/{id}')
-  Future<User> getPost(@Path('id') int id);
+  @GET('/user/{id}')
+  Future<User> getUser(@Path('id') int id);
 }

@@ -19,7 +19,7 @@ class _ApiGetService implements ApiGetService {
   String? baseUrl;
 
   @override
-  Future<List<User>> getPosts() async {
+  Future<List<User>> getUsers() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -32,7 +32,7 @@ class _ApiGetService implements ApiGetService {
     )
             .compose(
               _dio.options,
-              '/posts',
+              '/user',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -44,7 +44,7 @@ class _ApiGetService implements ApiGetService {
   }
 
   @override
-  Future<User> getPost(id) async {
+  Future<User> getUser(id) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -57,7 +57,7 @@ class _ApiGetService implements ApiGetService {
     )
             .compose(
               _dio.options,
-              '/posts/${id}',
+              '/user/${id}',
               queryParameters: queryParameters,
               data: _data,
             )
