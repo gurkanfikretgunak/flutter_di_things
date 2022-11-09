@@ -22,6 +22,7 @@ dev_dependencies:
   injectable_generator: ^1.5.5
   json_serializable: ^6.5.4
   build_runner: ^2.3.2
+  retrofit_generator: ^4.2.0
 flutter:
   uses-material-design: true
   assets:
