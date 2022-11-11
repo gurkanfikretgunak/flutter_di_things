@@ -1,4 +1,4 @@
-import '../../models/users.dart';
+import '../../models/user.dart';
 
 abstract class UsersService {
   Future<List<User>> getUsers();

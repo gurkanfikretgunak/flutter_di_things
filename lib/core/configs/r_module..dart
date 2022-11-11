@@ -1,3 +1,4 @@
+// ignore: file_names
 //Packages 📦
 import 'package:dio/dio.dart';
 import 'package:flutter_di_things/core/data/api_client.dart';

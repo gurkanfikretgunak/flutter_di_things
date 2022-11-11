@@ -8,5 +8,5 @@ class AppHelper {
 
   AppHelper(this._config);
 
-  String get apiUrl => _config['BASE_URL']!;
+  String? get apiUrl => _config['BASE_URL'];
 }

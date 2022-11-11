@@ -36,10 +36,7 @@ Future<_i1.GetIt> $initGetIt(
   );
   gh.singleton<_i4.AppHelper>(_i4.AppHelper(get<_i3.RawHelper>()));
   gh.singleton<_i5.Dio>(registerModule.dio(get<_i4.AppHelper>()));
-  gh.factory<_i6.UsersService>(() => _i7.ApiGetService(
-        get<_i5.Dio>(),
-        get<_i4.AppHelper>(),
-      ));
+  gh.factory<_i6.UsersService>(() => _i7.RestUsersService(get<_i5.Dio>()));
   return get;
 }
 

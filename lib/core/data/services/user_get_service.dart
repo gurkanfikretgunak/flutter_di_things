@@ -1,25 +1,25 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_di_things/core/helper/api_helper.dart';
 import 'package:injectable/injectable.dart';
-import 'package:retrofit/retrofit.dart';
+import 'package:retrofit/retrofit.dart' as rf;
 
-import '../models/users.dart';
+import '../models/user.dart';
 import 'abstract_services/users_service.dart';
+import 'package:dio/dio.dart';
 
 part 'user_get_service.g.dart';
 
-@RestApi()
+@rf.RestApi()
 @Injectable(as: UsersService)
-abstract class ApiGetService implements UsersService {
+abstract class RestUsersService implements UsersService {
   @factoryMethod
-  factory ApiGetService(Dio dio, AppHelper appHelper) =>
-      _ApiGetService(dio, baseUrl: appHelper.apiUrl);
+  factory RestUsersService(Dio dio) => _RestUsersService(dio);
 
   @override
-  @GET('/user')
+  @rf.GET('/users')
+  @rf.Headers({"Content-Type": "application/json"})
   Future<List<User>> getUsers();
 
   @override
-  @GET('/user/{id}')
-  Future<User> getUser(@Path('id') int id);
+  @rf.GET('/users/{id}')
+  Future<User> getUser(@rf.Path('id') int id);
 }

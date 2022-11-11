@@ -8,11 +8,13 @@ part of 'user_get_service.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers
 
-class _ApiGetService implements ApiGetService {
-  _ApiGetService(
+class _RestUsersService implements RestUsersService {
+  _RestUsersService(
     this._dio, {
     this.baseUrl,
-  });
+  }) {
+    baseUrl ??= 'https://636bcc40ad62451f9fbc0c60.mockapi.io/api/v1';
+  }
 
   final Dio _dio;
 
@@ -22,17 +24,19 @@ class _ApiGetService implements ApiGetService {
   Future<List<User>> getUsers() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
+    final _headers = <String, dynamic>{r'Content-Type': 'application/json'};
+    _headers.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
     final _result =
         await _dio.fetch<List<dynamic>>(_setStreamType<List<User>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
+      contentType: 'application/json',
     )
             .compose(
               _dio.options,
-              '/user',
+              '/users',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -57,7 +61,7 @@ class _ApiGetService implements ApiGetService {
     )
             .compose(
               _dio.options,
-              '/user/${id}',
+              '/users/${id}',
               queryParameters: queryParameters,
               data: _data,
             )
