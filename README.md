@@ -1,5 +1,5 @@
 
-# Flutter DI  & Easy Screens Test Envoriments for FSC Flutter BootCamp '22
+# Flutter DI & Test Envoriments for FSC Flutter BootCamp '22
 
 ## Lessons Learned
 
